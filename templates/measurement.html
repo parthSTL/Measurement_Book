@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Measurement</h1>
+
+
+    <div class="form">
+        <form action="/Measurement/{{span_id}}" method="POST">
+            <div class="mb-3">
+                <label for="ch_from">Chainage from</label>
+                <input type="text" name="ch_from" id="ch_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="ch_to">Chainage to</label>
+                <input type="text" name="ch_to" id="ch_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="length">Length</label>
+                <input type="text" name="length" id="length">
+            </div>
+            <!-- Length -->
+            <div class="mb-3">
+                <label for="offset">offset</label>
+                <input type="text" name="offset" id="offset">
+            </div>
+            <div class="mb-3">
+                <label for="depth">Depth</label>
+                <input type="text" name="depth" id="depth">
+            </div>
+            <!-- Depth -->
+            <div class="mb-3">
+                <label for="trench_side">Trench Side</label>
+                <input type="text" name="trench_side" id="trench_side">
+            </div>
+            <!-- Trench Side -->
+            <div class="mb-3">
+                <label for="duct_laid">Duct Laid</label>
+                <input type="text" name="duct_laid" id="duct_laid">
+            </div>
+            <!-- Duct Laid -->
+            <div class="mb-3">
+                <label for="method_exec">Method Execution</label>
+                <input type="text" name="method_exec" id="method_exec">
+            </div>
+            <!-- Method Execution -->
+            <div class="mb-3">
+                <label for="crossing">Crossing</label>
+                <input type="text" name="crossing" id="crossing">
+            </div>
+            <div class="mb-3">
+                <label for="strata_type">Strata Type</label>
+                <input type="text" name="strata_type" id="strata_type">
+            </div>
+            <div class="mb-3">
+                <label for="protect_dwc">DWC Protection</label>
+                <input type="text" name="protect_dwc" id="protect_dwc">
+            </div><div class="mb-3">
+                <label for="protect_gi">GI Protection</label>
+                <input type="text" name="protect_gi" id="protect_gi">
+            </div><div class="mb-3">
+                <label for="protect_rcc">RCC Protection</label>
+                <input type="text" name="protect_rcc" id="protect_rcc">
+            </div><div class="mb-3">
+                <label for="protect_pcc">PCC Protection</label>
+                <input type="text" name="protect_pcc" id="protect_pcc">
+            </div><div class="mb-3">
+                <label for="rcc_chamber">RCC Chamber</label>
+                <input type="text" name="rcc_chamber" id="rcc_chamber">
+            </div><div class="mb-3">
+                <label for="rcc_marker">RCC Marker</label>
+                <input type="text" name="rcc_marker" id="rcc_marker">
+            </div><div class="mb-3">
+                <label for="remark">Remarks</label>
+                <input type="text" name="remark" id="remark">
+            </div>
+            
+            
+
+            <div>
+                <button type="submit" class="btn btn-dark">Next Row</button>
+            </div>
+            
+        </form>
+        <div>
+            <a href="/" type="button">Submit</a>
+        </div>
+    </div>
+    
+    
+
+
+</div>
+{% endblock %}
