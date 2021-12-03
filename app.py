@@ -28,13 +28,11 @@ class Project_description(db.Model):
     ring_id=db.Column(db.String(200),nullable=False)
     span_id=db.Column(db.String(200),primary_key=True,nullable=False)
     measurements = db.relationship('Measurement', backref='project_description')
-    plt_locs=db.relationship('Plt_loc',backref='project_description')
 
 
 
-measurement_loc=db.Table('measurement_loc',
-    db.Column('measurement_id',db.Integer,db.ForeignKey('measurement.id'),primary_key=True),
-    db.Column('loc_id',db.Integer,db.ForeignKey('plt_loc.id'),primary_key=True))
+
+
 
 class Measurement(db.Model):
     id= db.Column(db.Integer,primary_key=True)
@@ -56,16 +54,11 @@ class Measurement(db.Model):
     rcc_marker=db.Column(db.Integer,nullable=False)
     remark=db.Column(db.String(200),nullable=False)
     span_id = db.Column(db.String(200), db.ForeignKey('project_description.span_id'), nullable=False)
+    lat_pt=db.Column(db.Float,nullable=False)
+    long_pt=db.Column(db.Float,nullable=False)
 
 
-class Plt_loc(db.Model):
-    id= db.Column(db.Integer,primary_key=True)
-    start_lat=db.Column(db.Float,nullable=False)
-    start_long=db.Column(db.Float,nullable=False)
-    end_lat=db.Column(db.Float,nullable=False)
-    end_long=db.Column(db.Float,nullable=False)
-    span_id = db.Column(db.String(200), db.ForeignKey('project_description.span_id'), nullable=False)
-    measurements=db.relationship('Measurement',secondary=measurement_loc)
+
 
 @app.route("/",methods=['POST','GET'])
 def index():
@@ -115,7 +108,7 @@ def project():
 
         return render_template('project.html')
 
-@app.route("/Measurement/<string:span_id>", methods=['POST','GET'])
+@app.route("/Measurement/<string:span_id>", methods=['POST','GET']) # Dynamic part URL for span id
 def measurement(span_id):
     if request.method=='POST':
         measurement_ch_from=request.form['ch_from']
@@ -135,13 +128,15 @@ def measurement(span_id):
         measurement_rcc_chamber=request.form['rcc_chamber']
         measurement_rcc_marker=request.form['rcc_marker']
         measurement_remark=request.form['remark']
+        measurement_lat_pt=request.form['lat_pt']
+        measurement_long_pt=request.form['long_pt']
 
         new_measurement=Measurement(ch_from=measurement_ch_from,ch_to=measurement_ch_to, length=measurement_length,
         offset=measurement_offset,depth=measurement_depth, trench_side=measurement_trench_side,duct_laid=measurement_duct_laid,
         method_exec=measurement_method_exec,crossing=measurement_crossing, strata_type=measurement_strata_type,
         protect_dwc=measurement_protect_dwc, protect_gi=measurement_protect_gi,protect_rcc=measurement_protect_rcc,
         protect_pcc=measurement_protect_pcc,rcc_chamber=measurement_rcc_chamber,rcc_marker=measurement_rcc_marker,
-        remark=measurement_remark,span_id=span_id)
+        remark=measurement_remark,span_id=span_id,lat_pt=measurement_lat_pt,long_pt=measurement_long_pt)
 
         # try:
         #     db.session.add(new_measurement)  # Add new_task in database
@@ -158,9 +153,7 @@ def measurement(span_id):
         
 
 
-@app.route("/Coordinates",methods=['POST','GET'])
-def coordinates():
-    return render_template('coordinates.html')
+
 
 # if database does not exist in the current directory, create it!
 db_is_new = not os.path.exists('mb.db')
