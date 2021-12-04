@@ -27,14 +27,14 @@ class Project_description(db.Model):
     gp_name=db.Column(db.String(200),nullable=False)
     ring_id=db.Column(db.String(200),nullable=False)
     span_id=db.Column(db.String(200),primary_key=True,nullable=False)
-    measurements = db.relationship('Measurement', backref='project_description')
+    measurements = db.relationship('TFiber_TnD_Measurement', backref='project_description')
 
 
 
 
 
 
-class Measurement(db.Model):
+class TFiber_TnD_Measurement(db.Model):
     id= db.Column(db.Integer,primary_key=True)
     ch_from=db.Column(db.Integer,nullable=False)
     ch_to=db.Column(db.Integer,nullable=False)
@@ -101,14 +101,14 @@ def project():
         try:
             db.session.add(new_project_site)  # Add new_task in database
             db.session.commit()  # Commit the database
-            return redirect('/Measurement/{}'.format(new_project_site.span_id)) # Redirect to Project_Site webpage
+            return redirect('/TFiber_T&D_Measurement/{}'.format(new_project_site.span_id)) # Redirect to Project_Site webpage
         except:
             return 'There was an issue adding your task'
     else:
 
         return render_template('project.html')
 
-@app.route("/Measurement/<string:span_id>", methods=['POST','GET']) # Dynamic part URL for span id
+@app.route("/TFiber_T&D_Measurement/<string:span_id>", methods=['POST','GET']) # Dynamic part URL for span id
 def measurement(span_id):
     if request.method=='POST':
         measurement_ch_from=request.form['ch_from']
@@ -131,25 +131,25 @@ def measurement(span_id):
         measurement_lat_pt=request.form['lat_pt']
         measurement_long_pt=request.form['long_pt']
 
-        new_measurement=Measurement(ch_from=measurement_ch_from,ch_to=measurement_ch_to, length=measurement_length,
+        new_measurement=TFiber_TnD_Measurement(ch_from=measurement_ch_from,ch_to=measurement_ch_to, length=measurement_length,
         offset=measurement_offset,depth=measurement_depth, trench_side=measurement_trench_side,duct_laid=measurement_duct_laid,
         method_exec=measurement_method_exec,crossing=measurement_crossing, strata_type=measurement_strata_type,
         protect_dwc=measurement_protect_dwc, protect_gi=measurement_protect_gi,protect_rcc=measurement_protect_rcc,
         protect_pcc=measurement_protect_pcc,rcc_chamber=measurement_rcc_chamber,rcc_marker=measurement_rcc_marker,
         remark=measurement_remark,span_id=span_id,lat_pt=measurement_lat_pt,long_pt=measurement_long_pt)
 
-        # try:
-        #     db.session.add(new_measurement)  # Add new_task in database
-        #     db.session.commit()  # Commit the database
-        #     return redirect('/Coordinates') # Redirect to Measurement webpage
-        # except:
-        #     return 'There was an issue adding your task'
-        db.session.add(new_measurement)
-        db.session.commit()
-        return redirect('/Measurement/{}'.format(span_id))
+        try:
+            db.session.add(new_measurement)  # Add new_task in database
+            db.session.commit()  # Commit the database
+            return redirect('/TFiber_T&D_Measurement/{}'.format(span_id)) # Redirect to Measurement webpage
+        except:
+            return 'There was an issue adding your task'
+        # db.session.add(new_measurement)
+        # db.session.commit()
+        # return redirect('/TFiber_T&D_Measurement/{}'.format(span_id))
     else:
 
-        return render_template('measurement.html',span_id=span_id)
+        return render_template('tfiber_t&d_measurement.html',span_id=span_id)
         
 
 
