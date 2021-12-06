@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Measurement</h1>
+
+
+    <div class="form">
+        <form action="/TFiber_HDD_Measurement/{{span_id}}" method="POST">
+            <div class="mb-3">
+                <label for="ch_from">Pit Chainage from</label>
+                <input type="text" name="ch_from" id="ch_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="ch_to">Pit Chainage to</label>
+                <input type="text" name="ch_to" id="ch_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="length">Length</label>
+                <input type="text" name="length" id="length">
+            </div>
+            <!-- Length -->
+            <div class="mb-3">
+                <label for="road_side">Side of the Road(LHS/RHS)</label>
+                <input type="text" name="road_side" id="road_side">
+            </div>
+            <div class="mb-3">
+                <label for="graph_as_built_made">Graph & As Built Made(Yes/No)</label>
+                <input type="text" name="graph_as_built_made" id="graph_as_built_made">
+            </div>
+            <!-- Depth -->
+            <div class="mb-3">
+                <label for="inter_sec_depth">Intermediate Sections Depth(Mtr)</label>
+                <input type="text" name="inter_sec_depth" id="inter_sec_depth">
+            </div>
+            <!-- Trench Side -->
+            <div class="mb-3">
+                <label for="bore_reamer_dia">Bore/Reamer Diameter(mm)</label>
+                <input type="text" name="bore_reamer_dia" id="bore_reamer_dia">
+            </div>
+            <!-- Duct Laid -->
+            <div class="mb-3">
+                <label for="no_of_duct">No of Ducts</label>
+                <input type="text" name="no_of_duct" id="no_of_duct">
+            </div>
+            <!-- Method Execution -->
+            <div class="mb-3">
+                <label for="remark">Remarks</label>
+                <input type="text" name="remark" id="remark">
+            </div>
+            <div class="mb-3">
+                <label for="lat_pt">Latitude Point</label>
+                <input type="text" name="lat_pt" id="lat_pt">
+            </div>
+            
+            <div class="mb-3">
+                <label for="long_pt">Longitude Point</label>
+                <input type="text" name="long_pt" id="long_pt">
+            </div>
+        </div>
+        
+            
+
+            <div>
+                <button type="submit" class="btn btn-dark">Next Row</button>
+            </div>
+            
+        </form>
+        <div>
+            <a href="/" type="button">Submit</a>
+        </div>
+    </div>
+    
+    
+
+
+</div>
+{% endblock %}
