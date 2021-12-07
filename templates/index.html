@@ -11,14 +11,22 @@
 
     <div class="form">
         <form action="/" method="POST">
-            <div class="mb-3">
-                <label for="book_name">Book_name</label>
-                <input type="text" name="book_name" id="book_name">
-            </div>
+            
+            <label for="book_name">Book Name:</label>
+            <select name="book_name" id="book_name">
+              <option value="tnd">T&D</option>
+              <option value="hdd">HDD</option>
+              <option value="blowing">Blowing</option>
+              <option value="drt">DRT</option>
+              <option value="dit">DIT</option>
+            </select>
+            <br>
+            <br>
             <div class="mb-3">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name">
             </div>
+            <br>
             <div>
                 <button type="submit" class="btn btn-dark">Submit</button>
               
