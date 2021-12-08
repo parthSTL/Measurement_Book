@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Measurement</h1>
+
+
+    <div class="form">
+        <form action="/TFiber_DIT_Measurement/{{span_id}}" method="POST">
+            <div class="mb-3">
+                <label for="chainage_from">Chainage from</label>
+                <input type="text" name="chainage_from" id="chainage_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="chainage_to">Chainage to</label>
+                <input type="text" name="chainage_to" id="chainage_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="chamber_from">Chamber No. From</label>
+                <input type="text" name="chamber_from" id="chamber_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="chamber_to">Chamber No to</label>
+                <input type="text" name="chamber_to" id="chamber_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="length">Duct Length(mtr)</label>
+                <input type="text" name="length" id="length">
+            </div>
+            <!-- Length -->
+            <div class="mb-3">
+                <label for="air_test">Air Test Result(Ok/Not Ok)</label>
+                <input type="text" name="air_test" id="air_test">
+            </div>
+            <div class="mb-3">
+                <label for="sponge_test">Songe Test Result(Ok/Not Ok)</label>
+                <input type="text" name="sponge_test" id="sponge_test">
+            </div>
+            <div class="mb-3">
+                <label for="shuttle_test">Songe Test Result(Ok/Not Ok)</label>
+                <input type="text" name="shuttle_test" id="shuttle_test">
+            </div>
+            <div class="mb-3">
+                <label for="pressure_test_5bar_30_min">Pressure Test Pressure Applied(5Bar for 30 Min permissible drop of 0.5 bar)</label>
+                <input type="text" name="pressure_test_5bar_30_min" id="pressure_test_5bar_30_min">
+            </div>
+            
+            <div class="mb-3">
+                <label for="pressure_test_10bar_10_min">Pressure Test Pressure Applied(10Bar for 10 Min permissible drop of 0.5 bar)</label>
+                <input type="text" name="pressure_test_10bar_10_min" id="pressure_test_10bar_10_min">
+            </div>
+            
+            <div class="mb-3">
+                <label for="pressure_test_10min_30_min">No of Ducts</label>
+                <input type="text" name="pressure_test_10min_30_min" id="pressure_test_10min_30_min">
+            </div>
+            <!-- Method Execution -->
+            
+            <div class="mb-3">
+                <label for="drop_in_pressure">Drop in Pressure (Bar) "A-B"</label>
+                <input type="text" name="drop_in_pressure" id="drop_in_pressure">
+            </div>
+            
+            <div class="mb-3">
+                <label for="test_result">Test Result(Ok/Not OK)</label>
+                <input type="text" name="test_result" id="test_result">
+            </div>
+            <div class="mb-3">
+                <label for="coupler_loc">Location of Coupler(Lat/ Long)</label>
+                <input type="text" name="coupler_loc" id="coupler_loc">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_from">MB Duct Missing Section (Landmark/Km) From</label>
+                <input type="text" name="mb_duct_from" id="mb_duct_from">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_to">MB Duct Missing Section (Landmark/Km) To</label>
+                <input type="text" name="mb_duct_to" id="mb_duct_to">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_len">MB Duct Missing Section (Landmark/Km) Length</label>
+                <input type="text" name="mb_duct_len" id="mb_duct_len">
+            </div>
+            <div class="mb-3">
+                <label for="remark">Remarks</label>
+                <input type="text" name="remark" id="remark">
+            </div>
+
+        </div>
+        
+            
+
+            <div>
+                <button type="submit" class="btn btn-dark">Next Row</button>
+            </div>
+            
+        </form>
+        <div>
+            <a href="/" type="button">Go to Home Page</a>
+        </div>
+    </div>
+    
+    
+
+
+</div>
+{% endblock %}

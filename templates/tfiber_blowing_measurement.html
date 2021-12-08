@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Measurement</h1>
+
+
+    <div class="form">
+        <form action="/TFiber_Blowing_Measurement/{{span_id}}" method="POST">
+            <div class="mb-3">
+                <label for="ch_from">Chainage(Mtr) From</label>
+                <input type="text" name="ch_from" id="ch_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="ch_to">Chainage (Mtr) To</label>
+                <input type="text" name="ch_to" id="ch_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="chamber_from">ChamberNo From</label>
+                <input type="text" name="chamber_from" id="chamber_from">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="chamber_to">Chamber no. To</label>
+                <input type="text" name="chamber_to" id="chamber_to">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="length">Length (Mtr)</label>
+                <input type="text" name="length" id="length">
+            </div>
+            <!-- length -->
+            <div class="mb-3">
+                <label for="size_of_ofc">Size of OFC(24F/48F/96F/144F/288F)</label>
+                <input type="text" name="size_of_ofc" id="size_of_ofc">
+            </div>
+            <div class="mb-3">
+                <label for="ofc_cable_id">OFC Cable ID(drum No.)</label>
+                <input type="text" name="ofc_cable_id" id="ofc_cable_id">
+            </div>
+            <div class="mb-3">
+                <label for="cable_start">Cable Length(Mtr)- Start Reading</label>
+                <input type="text" name="cable_start" id="cable_start">
+            </div>
+            <div class="mb-3">
+                <label for="cable_end">Cable Length(Mtr)- End Reading</label>
+                <input type="text" name="cable_end" id="cable_end">
+            </div>
+            
+            <div class="mb-3">
+                <label for="cable_len">Total Cable Length</label>
+                <input type="text" name="cable_len" id="cable_len">
+            </div>
+            <br>
+            <p><b>Cable Meter Mark and Slack Lengths (Mtr)</b>
+            </p>
+            <p>
+                MH/Chamber(A End)
+            </p>
+            <div class="mb-3">
+                <label for="mh_a_cable_end">Cable End Reading(Mtr)</label>
+                <input type="text" name="mh_a_cable_end" id="mh_a_cable_end">
+            </div>
+            <!-- Method Execution -->
+            
+            
+            <div class="mb-3">
+                <label for="mh_a_cable_entry">Cable Entry Reading(Mtr)</label>
+                <input type="text" name="mh_a_cable_entry" id="mh_a_cable_entry">
+            </div>
+            <div class="mb-3">
+                <label for="mh_a_slack_cable_len">Slack/ Loop Length (Mtr)</label>
+                <input type="text" name="mh_a_slack_cable_len" id="mh_a_slack_cable_len">
+            </div>
+            <p>
+                MH/Chamber(B End)
+            </p>
+            <div class="mb-3">
+                <label for="mh_b_cable_end">Cable End Reading(Mtr)</label>
+                <input type="text" name="mh_b_cable_end" id="mh_b_cable_end">
+            </div>
+           
+            
+            
+            <div class="mb-3">
+                <label for="mh_b_cable_entry">Cable Entry Reading(Mtr)</label>
+                <input type="text" name="mh_b_cable_entry" id="mh_b_cable_entry">
+            </div>
+            <div class="mb-3">
+                <label for="mh_b_slack_cable_len">Slack/ Loop Length (Mtr)</label>
+                <input type="text" name="mh_b_slack_cable_len" id="mh_b_slack_cable_len">
+            </div>
+            
+            
+            <div class="mb-3">
+                <label for="remarks">Remarks</label>
+                <input type="text" name="remarks" id="remarks">
+            </div>
+
+        </div>
+        
+            
+
+            <div>
+                <button type="submit" class="btn btn-dark">Next Row</button>
+            </div>
+            
+        </form>
+        <div>
+            <a href="/" type="button">Go to Home Page</a>
+        </div>
+    </div>
+    
+    
+
+
+</div>
+{% endblock %}

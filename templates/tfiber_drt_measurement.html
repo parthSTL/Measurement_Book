@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Measurement</h1>
+
+
+    <div class="form">
+        <form action="/TFiber_DRT_Measurement/{{span_id}}" method="POST">
+            <div class="mb-3">
+                <label for="chamber1_lat">Chamber1 Lat</label>
+                <input type="text" name="chamber1_lat" id="chamber1_lat">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="chamber1_long">Chamber1 Long</label>
+                <input type="text" name="chamber1_long" id="chamber1_long">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="chamber1_condition">Chamber1 Condition</label>
+                <input type="text" name="chamber1_condition" id="chamber1_condition">
+            </div>
+            <!-- Chainage from -->
+            <div class="mb-3">
+                <label for="chamber1_route_marker_avail">Chamber 1 Route Marker Available(Yes/No)</label>
+                <input type="text" name="chamber1_route_marker_avail" id="chamber1_route_marker_avail">
+            </div>
+            <!-- Chainage to -->
+            <div class="mb-3">
+                <label for="chamber2_lat">Chamber2 Lat</label>
+                <input type="text" name="chamber2_lat" id="chamber2_lat">
+            </div>
+            <!-- chamber2_lat -->
+            <div class="mb-3">
+                <label for="chamber2_long">Chamber2 Long</label>
+                <input type="text" name="chamber2_long" id="chamber2_long">
+            </div>
+            <div class="mb-3">
+                <label for="chamber2_condition">Chamber2 Condition</label>
+                <input type="text" name="chamber2_condition" id="chamber2_condition">
+            </div>
+            <div class="mb-3">
+                <label for="chamber2_route_marker_avail">Chamber 2 Route Marker Available(Yes/No)</label>
+                <input type="text" name="chamber2_route_marker_avail" id="chamber2_route_marker_avail">
+            </div>
+            <div class="mb-3">
+                <label for="ch_from">Chainage from</label>
+                <input type="text" name="ch_from" id="ch_from">
+            </div>
+            
+            <div class="mb-3">
+                <label for="ch_to">Chainage to</label>
+                <input type="text" name="ch_to" id="ch_to">
+            </div>
+            
+            <div class="mb-3">
+                <label for="duct_len">Duct Len(Mtrs)</label>
+                <input type="text" name="duct_len" id="duct_len">
+            </div>
+            <!-- Method Execution -->
+            
+            
+            <div class="mb-3">
+                <label for="mb_duct_dam_lat">MB Duct Damaged/Puncture Section - Location- Lat</label>
+                <input type="text" name="mb_duct_dam_lat" id="mb_duct_dam_lat">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_dam_long">MB Duct Damaged/Puncture Section - Location- Long</label>
+                <input type="text" name="mb_duct_dam_long" id="mb_duct_dam_long">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_dam_ch_from">MB Duct Damaged/Puncture Section - Chainage- From</label>
+                <input type="text" name="mb_duct_dam_ch_from" id="mb_duct_dam_ch_from">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_dam_ch_to">MB Duct Damaged/Puncture Section - Chainage- To</label>
+                <input type="text" name="mb_duct_dam_ch_to" id="mb_duct_dam_ch_to">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_dam_len">MB Duct Damaged/Puncture Section Length</label>
+                <input type="text" name="mb_duct_dam_len" id="mb_duct_dam_len">
+            </div>
+
+            <div class="mb-3">
+                <label for="mb_duct_mis_lat">MB Missing/Non Usable Section(Landmark/ Mtr.) - Location- Lat</label>
+                <input type="text" name="mb_duct_mis_lat" id="mb_duct_mis_lat">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_mis_long">MB Missing/Non Usable Section(Landmark/ Mtr.) - Location- Long</label>
+                <input type="text" name="mb_duct_mis_long" id="mb_duct_mis_long">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_mis_ch_from">MB Missing/Non Usable Section(Landmark/ Mtr.) - Chainage- From</label>
+                <input type="text" name="mb_duct_mis_ch_from" id="mb_duct_mis_ch_from">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_mis_ch_to">MB Duct Missing/Non Usable Section(Landmark/ Mtr.) - Chainage- To</label>
+                <input type="text" name="mb_duct_mis_ch_to" id="mb_duct_mis_ch_to">
+            </div>
+            <div class="mb-3">
+                <label for="mb_duct_mis_len">MB Duct Missing/Non Usable Section(Landmark/ Mtr.) Length</label>
+                <input type="text" name="mb_duct_mis_len" id="mb_duct_mis_len">
+            </div>
+            
+            
+            <div class="mb-3">
+                <label for="remarks">Remarks</label>
+                <input type="text" name="remarks" id="remarks">
+            </div>
+
+        </div>
+        
+            
+
+            <div>
+                <button type="submit" class="btn btn-dark">Next Row</button>
+            </div>
+            
+        </form>
+        <div>
+            <a href="/" type="button">Go to Home Page</a>
+        </div>
+    </div>
+    
+    
+
+
+</div>
+{% endblock %}

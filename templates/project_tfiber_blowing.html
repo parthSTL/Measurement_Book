@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Measurement Book</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Project Description Blowing</h1>
+
+
+    <div class="form">
+        <form action="/Project_Site_Blowing" method="POST">
+
+            <div class="mb-3">
+                <label for="msi_name">MSI_Name</label>
+                <input type="text" name="msi_name" id="msi_name">
+            </div>
+            <div class="mb-3">
+                <label for="mb_no">Measurement Book Number</label>
+                <input type="text" name="mb_no" id="mb_no">   
+                <!-- Measurement Book Number -->
+            </div>
+            <div class="mb-3">
+                <label for="sheet_no">Sheet Number</label>
+                <input type="text" name="sheet_no" id="sheet_no">
+            </div>
+            <!-- Sheet No -->
+            <div class="mb-3">
+                <label for="pop_type">POP_type</label>
+                <input type="text" name="pop_type" id="pop_type">
+            </div>
+            <!-- Point of Presence type -->
+            <div class="mb-3">
+                <label for="zone">Zone</label>
+                <input type="text" name="zone" id="zone">
+            </div>
+            <!-- Zone -->
+            <div class="mb-3">
+                <label for="mandal">Mandal</label>
+                <input type="text" name="mandal" id="mandal">
+            </div>
+            <!-- Mandal name -->
+            <div class="mb-3">
+                <label for="gp_name">GP Name</label>
+                <input type="text" name="gp_name" id="gp_name">
+            </div>
+            <!-- Gp Name -->
+            <div class="mb-3">
+                <label for="ring_id">Ring ID</label>
+                <input type="text" name="ring_id" id="ring_id">
+            </div>
+            <!-- Ring ID -->
+            <div class="mb-3">
+                <label for="span_id">Span ID</label>
+                <input type="text" name="span_id" id="span_id">
+            </div>
+            <!-- Span ID -->
+            <div class="mb-3">
+                <label for="abd">ABD Refernce</label>
+                <input type="text" name="abd" id="abd">
+            </div>
+            <div class="mb-3">
+                <label for="ofc_make_and_size">OFC Make and Size</label>
+                <input type="text" name="ofc_make_and_size" id="ofc_make_and_size">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+    
+
+
+</div>
+{% endblock %}
